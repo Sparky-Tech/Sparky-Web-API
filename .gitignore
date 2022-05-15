@@ -1,0 +1,9 @@
+*.xml
+*.iml
+.idea
+'.idea'
+*.iml
+!pom.xml*
+*.class
+*.class
+target/*
