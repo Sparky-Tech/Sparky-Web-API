@@ -8,6 +8,10 @@ import ac.sparky.wrapper.util.Tuple;
 public class SparkyAPI {
     private final static WebHandler webHandle = new WebHandler();
 
+    public static String getFormattedUUIDFromName(String license, String uuid) throws InvalidRequestException {
+        return webHandle.getUUIDFromName(license, uuid);
+    }
+
     public static boolean isInOverwatch(String license, String uuid) throws InvalidRequestException {
         return webHandle.isInOverwatch(license, uuid);
     }

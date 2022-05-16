@@ -15,6 +15,22 @@ public class WebHandler {
 
     private final String sparkyAPI = "https://rest.sparky.ac/api";
 
+    public String getUUIDFromName(String licenseKey, String username) throws InvalidRequestException {
+        String jsonResponse = HTTPUtil.getResponse(
+                this.sparkyAPI + "?license=" + licenseKey + "&type=uuid&username=" + username);
+
+        if (jsonResponse == null || jsonResponse.length() < 6) return null;
+
+        JSONObject jsonObject = new JSONObject(jsonResponse);
+
+        if (!jsonObject.has("Status") || !jsonObject.getString("Status").equalsIgnoreCase("OK")) {
+            throw new InvalidRequestException("Status Error");
+        }
+
+        return jsonObject.getString("FormattedUUID");
+    }
+
+
     public boolean isInOverwatch(String licenseKey, String uuid) throws InvalidRequestException {
         String jsonResponse = HTTPUtil.getResponse(
                 this.sparkyAPI + "?license=" + licenseKey + "&type=overwatch&uuid=" + uuid);

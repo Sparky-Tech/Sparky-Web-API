@@ -16,7 +16,17 @@ public class Main {
 
         if (args.length < 2) return;
 
-        showLogs(args);
+        getUUID(args);
+    }
+
+    private static void getUUID(String[] args) {
+        // gets the uuid that is cached of a player that we have cached
+
+        try {
+            System.out.println(SparkyAPI.getFormattedUUIDFromName(args[0], args[1]));
+        } catch (InvalidRequestException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void isInOverwatch(String[] args) {
