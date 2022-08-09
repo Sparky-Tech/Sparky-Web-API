@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if (args.length < 2) return;
+        if (args.length < 1) return;
 
         getUUID(args);
     }
@@ -23,7 +23,7 @@ public class Main {
         // gets the uuid that is cached of a player that we have cached
 
         try {
-            System.out.println(SparkyAPI.getFormattedUUIDFromName(args[0], args[1]));
+            System.out.println(SparkyAPI.getFormattedUUIDFromName(args[0]));
         } catch (InvalidRequestException e) {
             e.printStackTrace();
         }
@@ -33,7 +33,7 @@ public class Main {
         // checks if the player has been added to overwatch
 
         try {
-            System.out.println(SparkyAPI.isInOverwatch(args[0], args[1]));
+            System.out.println(SparkyAPI.isInOverwatch(args[0]));
         } catch (InvalidRequestException e) {
             e.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class Main {
         // gets the amount of logs stored for the user
 
         try {
-            System.out.println(SparkyAPI.getLogAmount(args[0], args[1]) + " logs!");
+            System.out.println(SparkyAPI.getLogAmount(args[0]) + " logs!");
         } catch (InvalidRequestException e) {
             e.printStackTrace();
         }
@@ -53,7 +53,7 @@ public class Main {
         // clear a players logs from the web API
 
         try {
-            if (SparkyAPI.clearLogs(args[0], args[1])) {
+            if (SparkyAPI.clearLogs(args[0])) {
                 System.out.println("Logs cleared!");
             } else {
                 System.out.println("Something went wrong..?");
@@ -68,7 +68,7 @@ public class Main {
         // grabs a players logs from the web API
 
         try {
-            SparkyPlayerLogsObject sparkyPlayerLogsObject = SparkyAPI.getLogs(args[0], args[1]);
+            SparkyPlayerLogsObject sparkyPlayerLogsObject = SparkyAPI.getLogs(args[0]);
 
             if (sparkyPlayerLogsObject.getLogs().size() < 1) {
                 System.out.println("No logs!");

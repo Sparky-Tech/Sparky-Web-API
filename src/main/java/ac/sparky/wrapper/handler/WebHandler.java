@@ -1,5 +1,6 @@
 package ac.sparky.wrapper.handler;
 
+import ac.sparky.SparkyAPI;
 import ac.sparky.exception.InvalidRequestException;
 import ac.sparky.serialized.LogObject;
 import ac.sparky.serialized.SparkyPlayerLogsObject;
@@ -13,11 +14,10 @@ import java.util.List;
 
 public class WebHandler {
 
-    private final String sparkyAPI = "https://rest.sparky.ac/api";
-
     public String getUUIDFromName(String licenseKey, String username) throws InvalidRequestException {
         String jsonResponse = HTTPUtil.getResponse(
-                this.sparkyAPI + "?license=" + licenseKey + "&type=uuid&username=" + username);
+                SparkyAPI.staticValues.getApiEndPoint()
+                        + "?license=" + licenseKey + "&type=uuid&username=" + username);
 
         if (jsonResponse == null || jsonResponse.length() < 6) return null;
 
@@ -33,7 +33,8 @@ public class WebHandler {
 
     public boolean isInOverwatch(String licenseKey, String uuid) throws InvalidRequestException {
         String jsonResponse = HTTPUtil.getResponse(
-                this.sparkyAPI + "?license=" + licenseKey + "&type=overwatch&uuid=" + uuid);
+                SparkyAPI.staticValues.getApiEndPoint()
+                        + "?license=" + licenseKey + "&type=overwatch&uuid=" + uuid);
 
         if (jsonResponse == null || jsonResponse.length() < 6) return false;
 
@@ -48,7 +49,8 @@ public class WebHandler {
 
     public int getLogAmount(String licenseKey, String uuid) throws InvalidRequestException {
         String jsonResponse = HTTPUtil.getResponse(
-                this.sparkyAPI + "?license=" + licenseKey + "&type=logamount&uuid=" + uuid);
+                SparkyAPI.staticValues.getApiEndPoint()
+                        + "?license=" + licenseKey + "&type=logamount&uuid=" + uuid);
 
         if (jsonResponse == null || jsonResponse.length() < 6) return 0;
 
@@ -63,7 +65,8 @@ public class WebHandler {
 
     public boolean deleteLogs(String licenseKey, String uuid) throws InvalidRequestException {
         String jsonResponse = HTTPUtil.getResponse(
-                this.sparkyAPI + "?license=" + licenseKey + "&type=clear&uuid=" + uuid);
+                SparkyAPI.staticValues.getApiEndPoint()
+                        + "?license=" + licenseKey + "&type=clear&uuid=" + uuid);
 
         if (jsonResponse == null || jsonResponse.length() < 6) return false;
 
@@ -79,7 +82,8 @@ public class WebHandler {
     public Tuple<Boolean, SparkyPlayerLogsObject> getLogs(String licenseKey, String uuid) throws InvalidRequestException {
 
         String jsonResponse = HTTPUtil.getResponse(
-                this.sparkyAPI + "?license=" + licenseKey + "&type=logs&uuid=" + uuid);
+                SparkyAPI.staticValues.getApiEndPoint()
+                        + "?license=" + licenseKey + "&type=logs&uuid=" + uuid);
 
         if (jsonResponse == null || jsonResponse.length() < 6) return null;
 
