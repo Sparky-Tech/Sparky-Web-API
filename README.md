@@ -2,18 +2,18 @@
 A simple Java Wrapper for the Sparky Web API
 #### Maven:
 ```xml
-    <repositories>
-        <repository>
-            <id>Sparky</id>
-            <url>https://nexus.sparky.ac/repository/Sparky/</url>
-        </repository>
-    </repositories>
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>ac.sparky</groupId>
-            <artifactId>SparkyWebAPI</artifactId>
-            <version>1.2</version>
-        </dependency>
+	 <dependency>
+	    <groupId>com.github.Sparky-Tech</groupId>
+	    <artifactId>Sparky-Web-API</artifactId>
+	    <version>1.2</version>
+	 </dependency>
     </dependencies>
 ```
