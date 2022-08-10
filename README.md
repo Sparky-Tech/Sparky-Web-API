@@ -9,11 +9,9 @@ A simple Java Wrapper for the Sparky Web API
 		</repository>
 	</repositories>
 
-    <dependencies>
-	 <dependency>
+	<dependency>
 	    <groupId>com.github.Sparky-Tech</groupId>
 	    <artifactId>Sparky-Web-API</artifactId>
 	    <version>1.2</version>
-	 </dependency>
-    </dependencies>
+	</dependency>
 ```
